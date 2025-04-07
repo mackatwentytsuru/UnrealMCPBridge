@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "UnrealMCPBridge",
+	"Description": "Implements Model Context Protocol allowing AI agents access to the editor's Python API.",
+	"Category": "Integration",
+	"CreatedBy": "Omar Abdelwahed",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "UnrealMCPBridge",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
