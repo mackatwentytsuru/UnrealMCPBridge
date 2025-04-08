@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright Omar Abdelwahed 2025. All Rights Reserved.
 
 #pragma once
 

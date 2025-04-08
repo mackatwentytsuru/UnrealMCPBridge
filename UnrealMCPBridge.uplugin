@@ -1,16 +1,16 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "1.1",
 	"FriendlyName": "UnrealMCPBridge",
 	"Description": "Implements Model Context Protocol allowing AI agents access to the editor's Python API.",
-	"Category": "Integration",
+	"Category": "Programming",
 	"CreatedBy": "Omar Abdelwahed",
-	"CreatedByURL": "",
-	"DocsURL": "",
-	"MarketplaceURL": "",
-	"SupportURL": "",
-	"CanContainContent": false,
+	"CreatedByURL": "https://agentdisco.com/",
+	"DocsURL": "https://github.com/appleweed/UnrealMCPBridge",
+	"FabURL": "com.epicgames.launcher://ue/Fab/product/fea3c55e-7c0b-4d23-933f-336f105f19bc",
+	"SupportURL": "https://github.com/appleweed/UnrealMCPBridge",
+	"CanContainContent": true,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
@@ -18,7 +18,10 @@
 		{
 			"Name": "UnrealMCPBridge",
 			"Type": "Editor",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
 		}
 	]
 }

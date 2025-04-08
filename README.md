@@ -11,20 +11,23 @@ This allows MCP clients, like Anthropic's [Claude](https://claude.ai/), to acces
 
 ## Prerequisites
 
+- Visual Studio 2019 or higher.
 - An AI Agent. Below, we assume Claude will be used. But any AI Agent that implements MCP should suffice.
 - Unreal Engine 5 with the Python Editor Script Plugin enabled.
 - Note the [Unreal Engine Python API](https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.5).
 
 ## Installation
 
-1. Create a new Unreal Engine project.
+1. Create a new Unreal Engine C++ project.
 2. Under the project root directory, find the `Plugins` folder.
 3. Clone this repo into the `Plugins` folder so that there is a new containing folder with all the project contents underneath.
-4. Copy `unreal_mcp_client.py` from the 'MCPClient' folder to a location of your choice.
-5. Find your `claude_desktop_config.json` configuration file.
+4. Right-click your UE project file (ends with `.uproject`) and select "Generate Visual Studio project files". If you don't immediately see that option, first select "Show more options" and it should appear.
+5. Open your new Visual Studio project and build.
+6. Copy `unreal_mcp_client.py` from the 'MCPClient' folder to a location of your choice.
+7. Find your `claude_desktop_config.json` configuration file.
 Mac location: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
 Windows location: `[path_to_your_user_account]\AppData\Claude\claude_desktop_config.json`
-6. Add the `unreal-engine` server section to your config file and update the path location excluding the square brackets, below.
+8. Add the `unreal-engine` server section to your config file and update the path location excluding the square brackets, below.
 Mac path format: `/[path_from_step_4]/unreal_mcp_client.py`
 Windows path format: `C:\\[path_from_step_4]\\unreal_mcp_client.py`
 ```json
@@ -39,14 +42,14 @@ Windows path format: `C:\\[path_from_step_4]\\unreal_mcp_client.py`
   }
 }
 ```
-7. Start Unreal Engine and load your new project.
-8. Enable the new `UnrealMCPBridge` plugin, and restart.
-9. There should be a new toolbar button that says, "Start MCP Bridge" when you hover with your mouse.
-10. Click the MCP Bridge button. A pop-up will state, "MCP Python bridge running." The Output Log will note a new socket server listening on 127.0.0.1:9000.
-11. Launch Claude as an administrator.
-12. Click the "Attach from MCP" plug-icon. Under "Choose an integration" are two test Prompts: `create_castle` and `create_town`. You can edit their implementations in `unreal_server_init.py` under the `Content` folder of the plugin. Be sure to restart Unreal Engine after any changes.
-13. Alternatively, ask Claude to build in your project using the UE Python API.
-14. A list of currently implemented tools can be found by clicking the hammer-icon to the left of the plug-icon.
+9. Start Unreal Engine and load your new project.
+10. Enable the new `UnrealMCPBridge` plugin, and restart.
+11. There should be a new toolbar button that says, "Start MCP Bridge" when you hover with your mouse.
+12. Click the MCP Bridge button. A pop-up will state, "MCP Python bridge running." The Output Log will note a new socket server listening on 127.0.0.1:9000.
+13. Launch Claude as an administrator.
+14. Click the "Attach from MCP" plug-icon. Under "Choose an integration" are two test Prompts: `create_castle` and `create_town`. You can edit their implementations in `unreal_server_init.py` under the `Content` folder of the plugin. Be sure to restart Unreal Engine after any changes.
+15. Alternatively, ask Claude to build in your project using the UE Python API.
+16. A list of currently implemented tools can be found by clicking the hammer-icon to the left of the plug-icon.
 
 ## Developing New Tools and Prompts
 

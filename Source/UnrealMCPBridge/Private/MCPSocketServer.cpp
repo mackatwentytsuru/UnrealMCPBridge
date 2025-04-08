@@ -1,3 +1,5 @@
+// Copyright Omar Abdelwahed 2025. All Rights Reserved.
+
 #include "MCPSocketServer.h"
 #include "PythonBridge.h"
 #include "SocketSubsystem.h"
