@@ -1,9 +1,15 @@
+// Copyright Omar Abdelwahed 2025. All Rights Reserved.
+
 #pragma once
 
 #include "CoreMinimal.h"
-// Copyright Omar Abdelwahed 2025. All Rights Reserved.
 
-#include "Json.h"
+// Define WITH_PYTHON if not already defined
+#ifndef WITH_PYTHON
+#define WITH_PYTHON 0
+#endif
+
+#include "JsonGlobals.h"
 
 /**
  * Bridge for executing Python commands within Unreal Engine

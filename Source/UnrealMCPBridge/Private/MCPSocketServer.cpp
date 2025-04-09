@@ -5,7 +5,7 @@
 #include "SocketSubsystem.h"
 #include "Interfaces/IPv4/IPv4Address.h"
 #include "HAL/RunnableThread.h"
-#include "Json.h"
+#include "JsonGlobals.h"
 #include "JsonObjectConverter.h"
 #include <PythonScriptPlugin/Private/PythonScriptRemoteExecution.h>
 #include <Common/TcpSocketBuilder.h>

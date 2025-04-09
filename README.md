@@ -11,12 +11,16 @@ This allows MCP clients, like Anthropic's [Claude](https://claude.ai/), to acces
 
 ## Prerequisites
 
-- Visual Studio 2019 or higher.
+- Visual Studio 2019 or higher (if building from code).
 - An AI Agent. Below, we assume Claude will be used. But any AI Agent that implements MCP should suffice.
 - Unreal Engine 5 with the Python Editor Script Plugin enabled.
 - Note the [Unreal Engine Python API](https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/?application_version=5.5).
 
-## Installation
+## Installing from Fab
+
+The easiest way to install the MCP Python Bridge plugin is from the [Fab store listing](https://www.fab.com/listings/0167ac03-47b5-4a08-b68f-5d54ab7b208e). Once you purchase the plugin, it will appear in your Library in the Epic Games Launcher. Click "Install to Engine" and choose the appropriate version of Unreal Engine.
+
+## Installing from GitHub
 
 1. Create a new Unreal Engine C++ project.
 2. Under the project root directory, find the `Plugins` folder.

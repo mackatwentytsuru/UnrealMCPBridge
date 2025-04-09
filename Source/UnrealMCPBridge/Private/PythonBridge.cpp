@@ -1,8 +1,8 @@
 // Copyright Omar Abdelwahed 2025. All Rights Reserved.
 
 #include "PythonBridge.h"
-#include "../Plugins/Experimental/PythonScriptPlugin/Source/PythonScriptPlugin/Private/PythonScriptPlugin.h"
-#include "Json.h"
+#include <PythonScriptPlugin/Private/PythonScriptPlugin.h>
+#include "JsonGlobals.h"
 #include "JsonObjectConverter.h"
 #include <FileHelpers.h>
 #include "Interfaces/IPluginManager.h"
