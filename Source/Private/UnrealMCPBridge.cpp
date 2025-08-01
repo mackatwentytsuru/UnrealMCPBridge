@@ -1,4 +1,5 @@
 #include "UnrealMCPBridge.h"
+#include "MCPServer.h"
 #include "Modules/ModuleManager.h"
 #include "Engine/Engine.h"
 #include "Framework/Notifications/NotificationManager.h"
@@ -35,11 +36,42 @@ void FUnrealMCPBridgeModule::InitializeMCPServer()
 {
 	UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーを初期化中..."));
 	
-	// TODO: MCPサーバー初期化を実装
-	// これには以下が含まれます:
-	// - MCPプロトコル用のTCP/WebSocketサーバーの設定
-	// - Python APIエンドポイントの登録
-	// - ツールとリソースハンドラーの設定
+	// UE5.6のEditor Subsystemを使用してMCPサーバーを取得・開始
+	if (GEditor)
+	{
+		UMCPServer* MCPServer = GEditor->GetEditorSubsystem<UMCPServer>();
+		if (MCPServer)
+		{
+			// サーバーを自動開始（デフォルトポート9000）
+			if (MCPServer->StartServer())
+			{
+				UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーが正常に開始されました"));
+				
+				// エディター通知を表示
+				ShowEditorNotification(
+					LOCTEXT("MCPServerStarted", "MCP Bridgeサーバーが開始されました"),
+					SNotificationItem::CS_Success
+				);
+			}
+			else
+			{
+				UE_LOG(LogUnrealMCPBridge, Warning, TEXT("MCPサーバーの開始に失敗しました"));
+				
+				ShowEditorNotification(
+					LOCTEXT("MCPServerStartFailed", "MCP Bridgeサーバーの開始に失敗しました"),
+					SNotificationItem::CS_Fail
+				);
+			}
+		}
+		else
+		{
+			UE_LOG(LogUnrealMCPBridge, Error, TEXT("MCPServerサブシステムが見つかりません"));
+		}
+	}
+	else
+	{
+		UE_LOG(LogUnrealMCPBridge, Warning, TEXT("エディター環境ではありません。MCPサーバーはスキップされます。"));
+	}
 	
 	UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーの初期化が完了しました"));
 }
@@ -48,11 +80,16 @@ void FUnrealMCPBridgeModule::ShutdownMCPServer()
 {
 	UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーをシャットダウン中..."));
 	
-	// TODO: MCPサーバークリーンアップを実装
-	// これには以下が含まれます:
-	// - サーバースレッドの停止
-	// - 接続のクリーンアップ
-	// - エンドポイントの登録解除
+	// UE5.6のEditor Subsystemを使用してMCPサーバーを停止
+	if (GEditor)
+	{
+		UMCPServer* MCPServer = GEditor->GetEditorSubsystem<UMCPServer>();
+		if (MCPServer && MCPServer->IsRunning())
+		{
+			MCPServer->StopServer();
+			UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーが正常に停止されました"));
+		}
+	}
 	
 	UE_LOG(LogUnrealMCPBridge, Log, TEXT("MCPサーバーのシャットダウンが完了しました"));
 }
@@ -61,6 +98,28 @@ bool FUnrealMCPBridgeModule::IsPythonScriptPluginEnabled() const
 {
 	// Python Script Plugin モジュールがロードされているかチェック
 	return FModuleManager::Get().IsModuleLoaded("PythonScriptPlugin");
+}
+
+void FUnrealMCPBridgeModule::ShowEditorNotification(const FText& Message, SNotificationItem::ECompletionState CompletionState)
+{
+	if (!GEditor)
+	{
+		return;
+	}
+
+	// UE5.6対応の通知システム
+	FNotificationInfo NotificationInfo(Message);
+	NotificationInfo.bFireAndForget = true;
+	NotificationInfo.FadeOutDuration = 3.0f;
+	NotificationInfo.ExpireDuration = 5.0f;
+	NotificationInfo.bUseThrobber = false;
+	NotificationInfo.bUseSuccessFailIcons = true;
+
+	TSharedPtr<SNotificationItem> NotificationItem = FSlateNotificationManager::Get().AddNotification(NotificationInfo);
+	if (NotificationItem.IsValid())
+	{
+		NotificationItem->SetCompletionState(CompletionState);
+	}
 }
 
 #undef LOCTEXT_NAMESPACE
