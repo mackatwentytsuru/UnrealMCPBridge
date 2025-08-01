@@ -1,0 +1,40 @@
+{
+	"FileVersion": 3,
+	"Version": 2,
+	"VersionName": "2.0.0-ue56",
+	"FriendlyName": "Unreal MCP Bridge",
+	"Description": "An Unreal Engine plugin that implements an MCP (Model Context Protocol) server allowing MCP clients to access the UE Editor Python API. Updated for Unreal Engine 5.6 compatibility.",
+	"Category": "Developer Tools",
+	"CreatedBy": "mackatwentytsuru",
+	"CreatedByURL": "https://github.com/mackatwentytsuru",
+	"DocsURL": "https://github.com/mackatwentytsuru/UnrealMCPBridge",
+	"MarketplaceURL": "",
+	"SupportURL": "https://github.com/mackatwentytsuru/UnrealMCPBridge/issues",
+	"EnabledByDefault": false,
+	"CanContainContent": false,
+	"IsBetaVersion": true,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"RequiresBuildPlatform": false,
+	"SupportedTargetPlatforms": [
+		"Win64",
+		"Mac",
+		"Linux"
+	],
+	"Modules": [
+		{
+			"Name": "UnrealMCPBridge",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit",
+			"AdditionalDependencies": [
+				"PythonScriptPlugin"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		}
+	]
+}
