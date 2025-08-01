@@ -1,42 +1,42 @@
-# UnrealMCPBridge v2.0.0 - UE5.6 Support
+# UnrealMCPBridge v2.0.0 - UE5.6 対応
 
-An Unreal Engine plugin that implements an MCP (Model Context Protocol) server allowing MCP clients to access the UE Editor Python API.
+MCPクライアントがUnreal Engine Editor Python APIにアクセスできるようにするMCP（Model Context Protocol）サーバーを実装するUnreal Engineプラグインです。
 
-## 🎯 What's New in v2.0.0
+## 🎯 v2.0.0 の新機能
 
-- **✅ Unreal Engine 5.6 Compatibility**: Full support for UE5.6 APIs
-- **🔧 Updated Plugin Architecture**: Modern plugin structure
-- **🐍 Enhanced Python Integration**: UE5.6 Python Script Plugin support
-- **⚡ Performance Optimizations**: Leveraging UE5.6 improvements
+- **✅ Unreal Engine 5.6 完全対応**: UE5.6 APIの完全サポート
+- **🔧 更新されたプラグインアーキテクチャ**: 最新のプラグイン構造
+- **🐍 強化されたPython統合**: UE5.6 Python Script Plugin サポート
+- **⚡ パフォーマンス最適化**: UE5.6の改善を活用
 
-## 📋 Requirements
+## 📋 必要条件
 
-- **Unreal Engine**: 5.6 or later
-- **Platform**: Windows, Mac, Linux
-- **Required Plugins**: PythonScriptPlugin, EditorScriptingUtilities
+- **Unreal Engine**: 5.6 以降
+- **プラットフォーム**: Windows, Mac, Linux
+- **必須プラグイン**: PythonScriptPlugin, EditorScriptingUtilities
 
-## 🔧 Installation
+## 🔧 インストール方法
 
-1. Clone this repository
-2. Copy to your project's `Plugins/` directory  
-3. Enable required plugins in UE5.6
-4. Restart Unreal Engine
+1. このリポジトリをクローン
+2. プロジェクトの `Plugins/` ディレクトリにコピー
+3. UE5.6で必須プラグインを有効化
+4. Unreal Engine を再起動
 
-## 🔍 Verification
+## 🔍 動作確認
 
-Check Output Log for:
+Output Log で以下のログを確認してください：
 ```
-LogUnrealMCPBridge: Log: UnrealMCPBridge module starting up for UE5.6
-LogUnrealMCPBridge: Log: MCP Server initialized successfully
+LogUnrealMCPBridge: Log: UnrealMCPBridge モジュールを UE5.6 で起動中
+LogUnrealMCPBridge: Log: MCPサーバーの初期化が完了しました
 ```
 
-## 🛠️ Development Status
+## 🛠️ 開発状況
 
-- [x] UE5.6 Core Compatibility
-- [ ] MCP Server Implementation  
-- [ ] Python API Integration
-- [ ] Documentation & Examples
+- [x] UE5.6 コア互換性対応
+- [ ] MCP Server 実装
+- [ ] Python API 統合
+- [ ] ドキュメント & サンプル
 
-## 📄 License
+## 📄 ライセンス
 
-MIT License - see LICENSE file for details.
+MIT License - 詳細は LICENSE ファイルを参照してください。
