@@ -4,27 +4,27 @@
 #include "Modules/ModuleManager.h"
 
 /**
- * Unreal MCP Bridge Module
+ * Unreal MCP Bridge モジュール
  * 
- * This module implements an MCP (Model Context Protocol) server that allows
- * MCP clients to access the Unreal Engine Editor Python API.
+ * このモジュールは、MCPクライアントがUnreal Engine Editor Python APIに
+ * アクセスできるようにするMCP（Model Context Protocol）サーバーを実装します。
  * 
- * Compatible with Unreal Engine 5.6
+ * Unreal Engine 5.6 対応
  */
 class FUnrealMCPBridgeModule : public IModuleInterface
 {
 public:
-	/** IModuleInterface implementation */
+	/** IModuleInterface実装 */
 	virtual void StartupModule() override;
 	virtual void ShutdownModule() override;
 
 private:
-	/** Initialize MCP server and Python integration */
+	/** MCPサーバーとPython統合を初期化 */
 	void InitializeMCPServer();
 	
-	/** Cleanup MCP server resources */
+	/** MCPサーバーリソースをクリーンアップ */
 	void ShutdownMCPServer();
 	
-	/** Check if Python Script Plugin is available */
+	/** Python Script Pluginが利用可能かチェック */
 	bool IsPythonScriptPluginEnabled() const;
 };
